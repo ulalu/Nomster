@@ -1,5 +1,6 @@
 
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaina');
 
 .booyah-box {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -16,6 +17,7 @@
 
 h1 {
     color: #514647;
+    font-family: 'Baloo Bhaina', cursive;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -25,4 +27,11 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
     background: image_url('bg.png');
+}
+
+.navbar-inverse .navbar-brand {
+    color: #e00012;
+    text-transform: uppercase;
+    font-family: 'Baloo Bhaina', cursive;
+    font-size: 30px;
 }
