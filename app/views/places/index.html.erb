@@ -1,4 +1,4 @@
-<%= will_paginate @places %>
+
 
 <% @places.each do |place| %>
     <div class="booyah-box col-10 offset-1">
@@ -8,3 +8,7 @@
     </div>
 
 <% end %>
+
+<div class="page-nav col-10 offset-1">
+    <%= will_paginate @places %>
+</div>
