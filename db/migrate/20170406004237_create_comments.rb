@@ -2,13 +2,13 @@ class CreateComments < ActiveRecord::Migration[5.0]
   def change
     create_table :comments do |t|
       t.text :message
-      t.strong :rating
+      t.string :rating
       t.integer :user_id
       t.integer :place_id
       t.timestamps
     end
-    
-    add_index :comment, [:user_id, :place_id]
+
+    add_index :comments, [:user_id, :place_id]
     add_index :comments, :place_id
   end
 end

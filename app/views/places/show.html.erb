@@ -41,3 +41,11 @@
     <br />
     <br />
 </div>
+
+<div class="clear"></div>
+<%= simple_form_for @commentm url: '#' do |f| %>
+    <%= f.input :message %>
+    <%= f.input :rating %>
+    <%= f.submit "Add a Comment", calss: 'btn btn-primary' %>
+<% end %>
+    
