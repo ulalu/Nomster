@@ -4,6 +4,18 @@
     <br /> <br />
     <p><%= @place.description %></p>
     
+    <div class="row">
+      <% @place.photos.each do |photo| %>
+        <div class="col-6">
+          
+          <b><%= image_tag photo.photo_url %></b> 
+             
+          <b><%= photo.caption %></b> 
+          
+        </div>
+      <% end %>
+    </div>
+    
  <% if @place.latitude.present? && @place.longitude.present? %>
     <script>
     
@@ -118,19 +130,7 @@
 
 <div class="clear"></div>
 
-<div class="row">
-  <% @place.photos.each do |photo| %>
-    <div class="col-6">
-      <!--put in a thing with the image url here later
-      yo why aren't the captions showing  up?? -->
-          <% if photo.caption.present? %>
-            <b><%= photo.caption %></b> 
-          <% end %>
-        
-        <small><%= photo.user.email %></small>
-    </div>
-  <% end %>
-</div>
+
 
 <div class="row">
   <% @place.comments.each do |comment| %>
