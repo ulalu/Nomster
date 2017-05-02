@@ -1,48 +1,51 @@
 <div class="booyah-box col-10 offset-1">
-    <h1> <%= @place.name %> </h1>
-    <i><%= @place.address %> </i>
-    <br /> <br />
-    <p><%= @place.description %></p>
-    
     <div class="row">
-      <% @place.photos.each do |photo| %>
-        <div class="col-6">
-          
-          <b><%= image_tag photo.photo_url %></b> 
-             
-          <b><%= photo.caption %></b> 
-          
-        </div>
-      <% end %>
-    </div>
-    
- <% if @place.latitude.present? && @place.longitude.present? %>
-    <script>
-    
-    function initMap() {
-      var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
-    
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: myLatLng
-      });
-    
-      var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Hello World!'
-      });
-    }
-    </script>
-    
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0kzcQcIp9WAnRPo0p-BLRMrO9tl1fL14&callback=initMap">
-    </script>
-    
-    <div id="map"></div>  
-<% end %>
-
-<br />
+      <div class="col-12 col-md-6">
+        <h1> <%= @place.name %> </h1>
+        <i><%= @place.address %> </i>
+        <br /> <br />
+        <p><%= @place.description %></p>
+      </div>
+      
+      <div class="col-6 col-med-6">
+      
+        <% @place.photos.each do |photo| %>
+            <b><%= image_tag photo.photo_url, :class => 'img-fluid' %></b> 
+               <br>
+            <b><%= photo.caption %></b> 
+        <% end %>
+      </div>
+     </div> 
+     <br>
+     <br>
+  <div class="col-10 offset-1">
+   <% if @place.latitude.present? && @place.longitude.present? %>
+      <script>
+      
+      function initMap() {
+        var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
+      
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: myLatLng
+        });
+      
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+      </script>
+      
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0kzcQcIp9WAnRPo0p-BLRMrO9tl1fL14&callback=initMap">
+      </script>
+      
+      <div id="map"></div>  
+    <% end %>
+  </div>
+    <br />
     
     <div class="float-right">
         <% if current_user && current_user == @place.user %>
@@ -60,11 +63,17 @@
 
     
 <div class="col-10 offset-1">
-<h1 class="float-left"> Comments </h1>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
-  Add a Comment
-</button>
+  <div class="floatright">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      Add a Comment
+    </button>
+    
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#photoModal">
+      Add a Photo
+    </button>
+  </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -94,11 +103,9 @@
 <div class="clear"></div>
 
 
-<div class="col-10 offset-1">
+
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#photoModal">
-  Add a Photo
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -129,20 +136,22 @@
 
 
 <div class="clear"></div>
-
-
-
-<div class="row">
-  <% @place.comments.each do |comment| %>
-    <div class="col-12 col-sm-6">
-      <blockquote>
-        <% if comment.humanized_rating.present? %>
-          <b><%= comment.humanized_rating %></b> -
-        <% end %>
-        <%= comment.message %>
-        <small><%= comment.user.email %></small>
-      </blockquote>
-    </div>
-  <% end %>
+<div class="col-10 offset-1">
+  <h1 class="float-left"> Comments </h1>
+  
+  <div class="clear"></div>
+  
+  <div class="row">
+    <% @place.comments.each do |comment| %>
+      <div class="col-12 col-sm-6">
+        <blockquote>
+          <% if comment.humanized_rating.present? %>
+            <b><%= comment.humanized_rating %></b> -
+          <% end %>
+          <%= comment.message %>
+          <small><%= comment.user.email %></small>
+        </blockquote>
+      </div>
+    <% end %>
+  </div>
 </div>
-
