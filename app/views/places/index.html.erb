@@ -3,15 +3,12 @@
 <% @places.each do |place| %>
     <div class="booyah-box col-10 offset-1">
         <div class= "row">
-            <div class="col-lg-3 col-sm-12"> 
-                <div class="index-image">
-                    <% if place.photos.present? %>
-                        <%= image_tag place.photos.last.photo_url %>
-                    <% end %>
-                </div>
+            <div class="col-lg-3 col-sm-6"> 
+                <% if place.photos.present? %>
+                    <%= image_tag place.photos.last.photo_url, :class => 'image-responsive'%>
+                <% end %>
             </div>
-        
-            <div class="col-lg-9 col-sm-12">
+            <div class="col-lg-9 col-sm-6">
                 <h1><%= link_to place.name, place_path(place) %></h1>
                 <i><%= place.address %></i><br />
                 <p><%= place.description %></p>
