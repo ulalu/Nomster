@@ -14,10 +14,10 @@
 </div>
 
 <div class="booyah-box col-10 offset-1">
-     <h1 class="text-center"> My Comments</h1>
+    <h1 class="text-center"> My Comments</h1>
       
-      <div class="clear"></div>
-         <div class="col-12">
+    <div class="clear"></div>
+        <div class="col-12">
             <% @user.comments.each do |comment| %>
                 <h3><%= link_to comment.place.name, place_path(comment.place) %></h3>
                 <blockquote>
@@ -27,6 +27,17 @@
                     <%= comment.message %>
                 </blockquote>
             <% end %>
-         </div>
+        </div>
 </div>
 
+<div class="clear"></div>
+
+<div class="booyah-box col-10 offset-1">
+    <h1 class="text-center"> My Places</h1>
+      <br>
+    <% @user.places.each do |place| %>
+      <div class="col-12">
+        <h2><%= link_to place.name, place_path(place) %></h2><br />
+      </div>
+    <% end %>
+</div>
