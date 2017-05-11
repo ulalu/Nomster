@@ -99,3 +99,9 @@ a:hover {
 .floatright {
     float: right;
 }
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: block;
+}
