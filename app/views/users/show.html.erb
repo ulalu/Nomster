@@ -1,6 +1,14 @@
 <div class="booyah-box col-10 offset-1">
-    <h2><%= @user.email %></h1>
-    <h4> Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h4>
-    <h5> <%= @user.comments.count %> total comments </h5>
-    <h5> <%= @user.comments.where(rating: '5_stars').count %> five star reviews </h5>
+    <div class="row">
+        <div class="col-3">
+            <%= image_tag 'user.png' %>
+        </div>    
+        <div class="col-7">
+            <h2><%= @user.email %></h1>
+            <h4> Member Since: <%= @user.created_at.strftime("%B %d, %Y") %></h4>
+            <h5> <%= @user.comments.count %> total comments </h5>
+            <h5> <%= @user.comments.where(rating: '5_stars').count %> five star reviews </h5>
+        </div>
+    </div>
+    <div class="clear"></div>
 </div>
