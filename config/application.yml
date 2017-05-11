@@ -10,9 +10,9 @@
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
-GEOCODER_API_KEY: "AoGXJV-jnDu3zOnwo_k-ctfHvx6iV7QQeoZujCGTq7RcN1rrJunjVkBvw4q9wg71"
-AWS_ACCESS_KEY: "AKIAIFK36ECLX6DOY7SA"
-AWS_SECRET_KEY: "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"
-AWS_BUCKET: "nomster-images"
-GMAIL_ADDRESS: "laurenamorena1@gmail.com"
-GMAIL_PASSWORD: "pique2016"
+GEOCODER_API_KEY: 
+AWS_ACCESS_KEY: 
+AWS_SECRET_KEY: 
+AWS_BUCKET: 
+GMAIL_ADDRESS: 
+GMAIL_PASSWORD: 
